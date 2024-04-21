@@ -3,7 +3,7 @@
 Criando o arquivo docker-compose.yml
 
 ```
-    version: "3"
+version: "3"
 
 services:
   spark-iceberg:
@@ -83,16 +83,20 @@ Rodando o arquivo
 ```docker-compose up```
 
 Vamos utilizar o PySpark então
-```docker exec -it spark-iceberg pyspark```
+```docker
+docker exec -it spark-iceberg pyspark
+```
 
 
 ## Instalando PySpark no notebook Jupyter
 
 Instalando a biblioteca PySpark
-```!pip install pyspark```
+```python
+!pip install pyspark
+```
 
 Iniciando uma sessão Spark
-```
+```python
 from pyspark.sql import SparkSession
 spark = SparkSession \
     .builder \
