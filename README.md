@@ -2,7 +2,7 @@
 
 Criando o arquivo docker-compose.yml
 
-<code>
+```
     version: "3"
 
 services:
@@ -77,24 +77,26 @@ services:
       "
 networks:
   iceberg_net:
-</code>
+```
 
 Rodando o arquivo
-<code>docker-compose up</code>
+```docker-compose up```
 
 Vamos utilizar o PySpark então
-<code>docker exec -it spark-iceberg pyspark</code>
+```docker exec -it spark-iceberg pyspark```
 
 
 ## Instalando PySpark no notebook Jupyter
 
 Instalando a biblioteca PySpark
-<code>!pip install pyspark</code>
+```!pip install pyspark```
 
 Iniciando uma sessão Spark
-<code>from pyspark.sql import SparkSession
-    spark = SparkSession \
-        .builder \
-        .appName("Python Spark SQL basic example") \ #Nome do aplicação
-        .config("spark.some.config.option", "some-value") \ #Configuração
-        .getOrCreate()</code>
+```
+from pyspark.sql import SparkSession
+spark = SparkSession \
+    .builder \
+    .appName("Python Spark SQL basic example") \ #Nome do aplicação
+    .config("spark.some.config.option", "some-value") \ #Configuração
+    .getOrCreate()
+```
