@@ -1,12 +1,45 @@
 # Criando Apache Spark com Delta Lake e Apache Iceberg
+
 ### Pré-Requisitos:
+
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Python 3](https://www.python.org/downloads/)
 - [Docker](https://docs.docker.com/get-docker/)
 
-## Delta Lake
-...
+## Delta Lake - Spark
+
+### Instalação do Scoop e do Poetry
+
+-> Scoop é um command-line installer
+
+```powershell
+  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+  Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+```
+
+-> Poertry é um package manager que gera um ambiente virtual
+
+```python
+  scoop install pipx
+  pipx ensurepath
+```
+
+-> Iniciando o Poetry e abrindo o terminal dele
+
+```python
+  poetry init
+  poetry shell
+```
+
+-> Adicionando as libs
+
+```
+  <caminho/do/python.exe/dentro/do/venv> -m pip install pyspark
+  <caminho/do/python.exe/dentro/do/venv> -m pip install delta-spark
+```
+
 ## Apache Iceberg
+
 #### Usando Docker-Compose para criar o ambiente Iceberg-Spark
 
 1. Criando o arquivo docker-compose.yml
@@ -89,24 +122,27 @@ networks:
 ```
 
 2. Rodando o arquivo
+
 ```docker
 docker-compose up
 ```
 
 4. Vamos utilizar o PySpark então
+
 ```docker
 docker exec -it spark-iceberg pyspark
 ```
 
-
 #### Instalando PySpark no notebook Jupyter
 
 1. Instalando a biblioteca PySpark
+
 ```python
 !pip install pyspark
 ```
 
 2. Iniciando uma sessão Spark
+
 ```python
 from pyspark.sql import SparkSession
 spark = SparkSession \
