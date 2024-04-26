@@ -1,6 +1,15 @@
-# Usando Docker-Compose para criar o ambiente Iceberg-Spark
+# Criando Apache Spark com Delta Lake e Apache Iceberg
+### Pré-Requisitos:
+- [Visual Studio Code](https://code.visualstudio.com/download)
+- [Python 3](https://www.python.org/downloads/)
+- [Docker](https://docs.docker.com/get-docker/)
 
-Criando o arquivo docker-compose.yml
+## Delta Lake
+...
+## Apache Iceberg
+#### Usando Docker-Compose para criar o ambiente Iceberg-Spark
+
+1. Criando o arquivo docker-compose.yml
 
 ```
 version: "3"
@@ -79,23 +88,25 @@ networks:
   iceberg_net:
 ```
 
-Rodando o arquivo
-```docker-compose up```
+2. Rodando o arquivo
+```docker
+docker-compose up
+```
 
-Vamos utilizar o PySpark então
+4. Vamos utilizar o PySpark então
 ```docker
 docker exec -it spark-iceberg pyspark
 ```
 
 
-## Instalando PySpark no notebook Jupyter
+#### Instalando PySpark no notebook Jupyter
 
-Instalando a biblioteca PySpark
+1. Instalando a biblioteca PySpark
 ```python
 !pip install pyspark
 ```
 
-Iniciando uma sessão Spark
+2. Iniciando uma sessão Spark
 ```python
 from pyspark.sql import SparkSession
 spark = SparkSession \
